@@ -16,4 +16,14 @@ public class MessageRepository {
         usernameList.addAll(jdbcTemplate.queryForList("SELECT user_name FROM tbl_msg;",String.class));
         return usernameList;
     }
+
+
+    public String getEmailByUserName() {
+
+       String sql = "SELECT tbl_branch_detail.branch_email FROM tbl_branch_detail, tbl_msg where tbl_msg.user_name = \"Dilka\";  ";
+
+
+        String email = (String) jdbcTemplate.queryForObject(sql, String.class);
+        return email;
+    }
 }

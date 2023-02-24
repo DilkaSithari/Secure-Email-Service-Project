@@ -9,14 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/send")
+
 public class messageController {
     @Autowired
     MessageRepository messageRepository;
 
-    @GetMapping("getusernames")
+    @GetMapping("send")
     public List<String> getAllUserNames(){
         return messageRepository.getAllUserNames();
     }
+    @GetMapping("getEmail")
+    public String getEmailByUserName(){
+        return messageRepository.getEmailByUserName();
+    }
+
 
 }
