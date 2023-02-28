@@ -10,4 +10,6 @@ public interface BranchDetailRepo {
     List<BranchDetail> findByBranchCode(int branchCode);
     int deleteBranchDetail(int branchCode);
     int updateBranchDetail(int branchCode, BranchDetail branchDetail);
+
+
 }

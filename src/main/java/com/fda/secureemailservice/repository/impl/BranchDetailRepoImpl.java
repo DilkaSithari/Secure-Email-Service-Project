@@ -11,7 +11,8 @@ import java.util.List;
 
 @Repository
 public class BranchDetailRepoImpl implements BranchDetailRepo {
-    private final JdbcTemplate jdbcTemplate;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
     @Autowired
     public BranchDetailRepoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -47,11 +48,12 @@ public class BranchDetailRepoImpl implements BranchDetailRepo {
 
     @Override
     public int updateBranchDetail(int branchCode, BranchDetail branchDetail) {
-        String sql="Update tbl_branch_detail set branch_code=?, branch_name=?,branch_email=? where branch_code=?;";
+        String sql="Update tbl_branch_detail set  branch_name=?,branch_email=? where branch_code=?;";
         return jdbcTemplate.update(sql,
-                branchDetail.getBranchCode(),
                 branchDetail.getBranchName(),
                 branchDetail.getBranchEmail(),branchCode) ;
     }
+
+
 
 }

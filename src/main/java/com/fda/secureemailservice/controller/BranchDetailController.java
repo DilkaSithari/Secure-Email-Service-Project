@@ -2,6 +2,7 @@ package com.fda.secureemailservice.controller;
 
 import com.fda.secureemailservice.model.BranchDetail;
 import com.fda.secureemailservice.repository.BranchDetailRepo;
+import com.fda.secureemailservice.service.BranchDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,30 +11,28 @@ import java.util.List;
 @RestController
 @RequestMapping("api/branchDetail")
 public class BranchDetailController {
-    private final BranchDetailRepo branchDetailRepo;
-
     @Autowired
-    public BranchDetailController(BranchDetailRepo branchDetailRepo) {
-        this.branchDetailRepo = branchDetailRepo;
-    }
+    BranchDetailService branchDetailService;
+
     @PostMapping("/add")
    public void addBranchDetail(@RequestBody BranchDetail branchDetail){
-        branchDetailRepo.addBranchDetail(branchDetail);
+        branchDetailService.addBranchDetail(branchDetail);
    }
    @GetMapping("/all")
    public List<BranchDetail> findAll(){
-        return branchDetailRepo.findAll();
+        return branchDetailService.findAll();
    }
    @GetMapping("{branchCode}")
    public List<BranchDetail> findByBranchCode(@PathVariable("branchCode") int branchCode){
-        return branchDetailRepo.findByBranchCode(branchCode);
+        return branchDetailService.findByBranchCode(branchCode);
    }
    @PutMapping("update/{branchCode}")
-   public int updateBranchDetail(@RequestBody BranchDetail branchDetail,@PathVariable("branchCode") int branchCode){
-        return branchDetailRepo.updateBranchDetail(branchCode,branchDetail);
+   public void updateBranchDetail(@RequestBody BranchDetail branchDetail, @PathVariable("branchCode") int branchCode ){
+        branchDetailService.updateBranchDetail(branchCode ,branchDetail);
    }
    @GetMapping("delete/{branchCode}")
-   public void deleteBranchDetail(@PathVariable("branchCode") int branchCode){
-        branchDetailRepo.deleteBranchDetail(branchCode);
+   public int deleteBranchDetail(@PathVariable("branchCode") int branchCode){
+        return branchDetailService.deleteBranchDetail(branchCode);
+
    }
 }
