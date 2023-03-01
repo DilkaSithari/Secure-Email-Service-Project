@@ -14,14 +14,16 @@ public class BranchDetailController {
     @Autowired
     BranchDetailService branchDetailService;
 
+    @GetMapping("/all")
+    public List<BranchDetail> findAll(){
+        return branchDetailService.findAll();
+    }
+
     @PostMapping("/add")
    public void addBranchDetail(@RequestBody BranchDetail branchDetail){
         branchDetailService.addBranchDetail(branchDetail);
    }
-   @GetMapping("/all")
-   public List<BranchDetail> findAll(){
-        return branchDetailService.findAll();
-   }
+
    @GetMapping("{branchCode}")
    public List<BranchDetail> findByBranchCode(@PathVariable("branchCode") int branchCode){
         return branchDetailService.findByBranchCode(branchCode);
