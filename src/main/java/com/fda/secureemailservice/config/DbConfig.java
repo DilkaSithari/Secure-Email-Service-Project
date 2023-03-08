@@ -1,5 +1,4 @@
 package com.fda.secureemailservice.config;
-
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

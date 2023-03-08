@@ -1,13 +1,14 @@
 package com.fda.secureemailservice.repository;
 
 import com.fda.secureemailservice.model.UserBranch;
+import org.springframework.http.ResponseEntity;
 
-import java.util.List;
+import java.sql.SQLException;
 
 public interface UserBranchRepo {
-    List<UserBranch> findAll();
-    int addUserBranch(UserBranch userBranch);
-    List<UserBranch> findByUserName(String userName);
-    int deleteUserBranch(String userName);
-    int updateUserBranch(String userName, UserBranch userBranch);
+    ResponseEntity<Object> findAll(UserBranch userBranch) ;
+    ResponseEntity<Object> addUserBranch(UserBranch userBranch);
+    ResponseEntity<Object> findByUserName(String userName);
+    ResponseEntity<Object> deleteUserBranch(String userName);
+    ResponseEntity<Object> updateUserBranch(String userName, UserBranch userBranch);
 }

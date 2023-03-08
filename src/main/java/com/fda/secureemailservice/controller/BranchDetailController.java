@@ -1,7 +1,7 @@
 package com.fda.secureemailservice.controller;
 
 import com.fda.secureemailservice.model.BranchDetail;
-import com.fda.secureemailservice.repository.BranchDetailRepo;
+
 import com.fda.secureemailservice.service.BranchDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

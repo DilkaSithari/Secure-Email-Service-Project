@@ -23,27 +23,31 @@ public class MessageController {
         return messageService.getAllUserNames();
     }
     @GetMapping("/getEmail/{userName}")
-    public ResponseEntity<?>  getEmailByUserName(@PathVariable String userName) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        try{
-        String email = messageService.getEmailByUserName(userName);
-        if (!email.isEmpty()){
-            map.put("status", 1);
-            map.put("data", email);
-            return new ResponseEntity<>(map, HttpStatus.OK);
-        } }
-
-        catch (EmptyResultDataAccessException e){
-            map.clear();
-            map.put("status", 0);
-            map.put("message", "User name not exist");
-            return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
-        return null;
+    public String  getEmailByUserName(@PathVariable String userName) {
+        String getEmailByUserName= messageService.getEmailByUserName(userName);
+        return getEmailByUserName;
     }
+//    public ResponseEntity<?>  getEmailByUserName(@PathVariable String userName) {
+//        Map<String, Object> map = new LinkedHashMap<>();
+//        try{
+//        String email = messageService.getEmailByUserName(userName);
+//        if (!email.isEmpty()){
+//            map.put("status", 1);
+//            map.put("data", email);
+//            return new ResponseEntity<>(map, HttpStatus.OK);
+//        } }
+//
+//        catch (EmptyResultDataAccessException e){
+//            map.clear();
+//            map.put("status", 0);
+//            map.put("message", "User name not exist");
+//            return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+//        }
+//        catch (Exception e){
+//            System.out.println(e);
+//        }
+//        return null;
+//    }
 //    public String getEmailByUserName(@PathVariable String userName){
 //        return messageService.getEmailByUserName(userName);
 //    }

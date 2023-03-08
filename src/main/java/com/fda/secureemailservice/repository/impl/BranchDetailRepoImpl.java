@@ -1,7 +1,6 @@
 package com.fda.secureemailservice.repository.impl;
 
 import com.fda.secureemailservice.model.BranchDetail;
-import com.fda.secureemailservice.model.model_mapper.BranchDetailMapper;
 import com.fda.secureemailservice.repository.BranchDetailRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,22 +21,26 @@ public class BranchDetailRepoImpl implements BranchDetailRepo {
     public List<BranchDetail> findAll() {
         String sql="SELECT * FROM tbl_branch_detail;";
 
-        return jdbcTemplate.query(sql,new BranchDetailMapper()) ;
+
+        return null;
     }
 
     @Override
     public int addBranchDetail(BranchDetail branchDetail) {
-        String sql = " INSERT into tbl_branch_detail(branch_code,branch_name,branch_email) VALUES (?,?,?); ";
-        return jdbcTemplate.update(sql,
-                branchDetail.getBranchCode(),
-                branchDetail.getBranchName(),
-                branchDetail.getBranchEmail());
+//        String sql = " INSERT into tbl_branch_detail(branch_code,branch_name,branch_email) VALUES (?,?,?); ";
+//        return jdbcTemplate.update(sql,
+//                branchDetail.getBranchCode(),
+//                branchDetail.getBranchName(),
+//                branchDetail.getBranchEmail());
+        return 0;
     }
 
     @Override
     public List<BranchDetail> findByBranchCode(int branchCode) {
-        String sql="SELECT * FROM tbl_branch_detail where branch_code=?;";
-        return jdbcTemplate.query(sql,new BranchDetailMapper(),branchCode) ;
+//        String sql="SELECT * FROM tbl_branch_detail where branch_code=?;";
+//        return jdbcTemplate.query(sql,new BranchDetailMapper(),branchCode) ;
+
+        return null;
     }
 
     @Override
