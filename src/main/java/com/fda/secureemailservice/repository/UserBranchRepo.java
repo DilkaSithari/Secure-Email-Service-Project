@@ -1,9 +1,6 @@
 package com.fda.secureemailservice.repository;
-
 import com.fda.secureemailservice.model.UserBranch;
 import org.springframework.http.ResponseEntity;
-
-import java.sql.SQLException;
 
 public interface UserBranchRepo {
     ResponseEntity<Object> findAll(UserBranch userBranch) ;

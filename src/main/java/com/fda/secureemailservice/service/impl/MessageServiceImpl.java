@@ -1,5 +1,6 @@
 package com.fda.secureemailservice.service.impl;
 
+import com.fda.secureemailservice.model.Msg;
 import com.fda.secureemailservice.repository.MessageRepository;
 import com.fda.secureemailservice.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public String getEmailByUserName(String username) {
-        return messageRepository.getEmailByUserName(username);
+    public ResponseEntity<Object> getDetailsByUserName(String username) {
+        return messageRepository.getDetailsByUserName(username);
     }
+
+
 }
