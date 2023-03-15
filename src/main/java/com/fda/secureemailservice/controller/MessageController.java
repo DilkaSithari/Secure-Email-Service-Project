@@ -1,4 +1,5 @@
 package com.fda.secureemailservice.controller;
+import com.fda.secureemailservice.model.EmailDetails;
 import com.fda.secureemailservice.service.MessageService;
 import com.fda.secureemailservice.util.EmailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import java.util.List;
 
 public class MessageController {
     @Autowired
+    EmailUtil emailUtil;
+
+    @Autowired
     MessageService messageService;
 
     @GetMapping("/usernames")
@@ -19,25 +23,31 @@ public class MessageController {
         return messageService.getAllUserNames();
     }
     @GetMapping("/getDetails/{userName}")
-    public ResponseEntity<Object> getDetailsByUserName(@PathVariable String userName) {
+    public ResponseEntity<Object> getDetailsByUserName(@PathVariable("userName") String userName) {
         ResponseEntity<Object> getDetailsByUserName= messageService.getDetailsByUserName(userName);
         return getDetailsByUserName;
     }
 
 
 
-
-    EmailUtil emailUtil = new EmailUtil();
-//    @RequestMapping(value = "/sendemail")
-//    public String sendEmail()    {
-//        emailUtil.sendEmail();
+//    @GetMapping( "/sendemail/{userName}")
+//    public String sendmail(@PathVariable("userName") String userName)    {
+//
+//        List<EmailDetails> list = messageService.getDetailsByUserName(userName);
+//        for(EmailDetails dtl : list){
+//        emailUtil.sendEmail(dtl);
+//         }
+//
 //        return "Email sent successfully";
 //    }
-//branch email   -> getEmailByUserName
-    //subject
-    //msg
 
-    //
+    }
 
 
-}
+
+
+
+
+
+
+

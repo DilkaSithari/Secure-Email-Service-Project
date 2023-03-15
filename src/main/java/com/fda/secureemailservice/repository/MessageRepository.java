@@ -1,5 +1,4 @@
 package com.fda.secureemailservice.repository;
-import com.fda.secureemailservice.model.Msg;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
