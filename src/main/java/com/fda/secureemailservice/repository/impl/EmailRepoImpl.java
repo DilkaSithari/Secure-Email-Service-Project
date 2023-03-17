@@ -70,7 +70,6 @@ public class EmailRepoImpl implements EmailRepo {
                 message.setTo(to);
                 message.setSubject(emailDetails.getSubject());
                 message.setText(emailDetails.getMsg());
-
                 mailSender.send(message);
                 LOGGER.info("email sent");
             }

@@ -15,9 +15,9 @@ public class SendEmailController {
     EmailService emailService;
 
     @GetMapping("/sendEmail/{userName}")
-    public ResponseEntity<Object> sendEmail(@PathVariable("userName") String userName) {
-         ResponseEntity<Object> sendEmail = emailService.sendEmail(userName);
-        return sendEmail;
+    public String sendEmail(@PathVariable("userName") String userName) {
+          emailService.sendEmail(userName);
+        return "Email Sent";
     }
 
 }

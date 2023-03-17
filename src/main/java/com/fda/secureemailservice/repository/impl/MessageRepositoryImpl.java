@@ -65,18 +65,6 @@ public class MessageRepositoryImpl implements MessageRepository {
                 emailDetails.setMsg(rs.getString("message"));
                 emailDetailByUserName.add(emailDetails);
 
-                String from = mailUsername;
-                String to = emailDetails.getBranchEmail();
-
-                SimpleMailMessage message = new SimpleMailMessage();
-
-                message.setFrom(from);
-                message.setTo(to);
-                message.setSubject(emailDetails.getSubject());
-                message.setText(emailDetails.getMsg());
-                mailSender.send(message);
-                LOGGER.info("**************");
-
             }
             pstmt.executeQuery();
 

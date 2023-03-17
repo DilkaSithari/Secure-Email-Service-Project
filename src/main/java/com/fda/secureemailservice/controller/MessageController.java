@@ -12,8 +12,7 @@ import java.util.List;
 @RequestMapping("api/service")
 
 public class MessageController {
-    @Autowired
-    EmailUtil emailUtil;
+
 
     @Autowired
     MessageService messageService;
@@ -23,7 +22,7 @@ public class MessageController {
         return messageService.getAllUserNames();
     }
     @GetMapping("/getDetails/{userName}")
-    public ResponseEntity<Object> getDetailsByUserName(@PathVariable("userName") String userName) {
+    public ResponseEntity<Object> getDetailsByUserName(@PathVariable String userName) {
         ResponseEntity<Object> getDetailsByUserName= messageService.getDetailsByUserName(userName);
         return getDetailsByUserName;
     }

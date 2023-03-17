@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-
+@RestController
 @Component
 public class EmailUtil {
 
@@ -23,22 +25,26 @@ public class EmailUtil {
     String mailPassword;
     @Autowired
     private JavaMailSender mailSender;
-//    public void sendEmail(EmailDetails detail){
-//        String from = mailUsername;
-//        String to = detail.getBranchEmail();
-//
-//        SimpleMailMessage message = new SimpleMailMessage();
-//
-//        message.setFrom(from);
-//        message.setTo(to);
-//        message.setSubject(detail.getSubject());
-//        message.setText(detail.getMsg());
-//        mailSender.send(message);
+    public void sendEmail(){
 
 
+        EmailDetails emailDetails = new EmailDetails();
+        String from = mailUsername;
+        String to = "sitharidilka@gmail.com" ;
 
+        SimpleMailMessage message = new SimpleMailMessage();
+
+        message.setFrom(from);
+        message.setTo(to);
+        message.setSubject("This is a plain text email");
+        message.setText("Hello guys! This is a plain text email.");
+        mailSender.send(message);
     }
-
+    @GetMapping( "/sendemail")
+    public String sendmail()    {
+        sendEmail();
+        return "Email sent successfully";
+    }
 
 //    public void sendmail() throws MessagingException {
 //        Properties props = new Properties();
@@ -71,7 +77,7 @@ public class EmailUtil {
 
 
 
-
+}
 
 
 

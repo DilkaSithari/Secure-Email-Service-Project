@@ -14,10 +14,10 @@ public class SecureEmailServiceApplication {
 		System.out.println("*********************START*********************");
 	}
 
-	@Bean
-	public JavaMailSender javaMailSender(){
-		return new JavaMailSenderImpl();
-	}
+//	@Bean
+//	public JavaMailSender javaMailSender(){
+//		return new JavaMailSenderImpl();
+//	}
 
 
 
